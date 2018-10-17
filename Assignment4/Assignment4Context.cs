@@ -19,17 +19,17 @@ namespace Assignment4
             optionsBuilder.UseNpgsql("host=localhost; db=northwind; uid=postgres; psw=casperkaos ");
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Category>().ToTable("categories");
-            modelBuilder.Entity<Category>().Property(x => x.Id).HasColumnName("categoryid");
-            modelBuilder.Entity<Category>().Property(x => x.Name).HasColumnName("categoryname");
-            modelBuilder.Entity<Category>().Property(x => x.Description).HasColumnName("description");
+        //    modelBuilder.Entity<Category>().ToTable("categories");
+        //    modelBuilder.Entity<Category>().Property(x => x.Id).HasColumnName("categoryid");
+        //    modelBuilder.Entity<Category>().Property(x => x.Name).HasColumnName("categoryname");
+        //    modelBuilder.Entity<Category>().Property(x => x.Description).HasColumnName("description");
 
-            modelBuilder.Entity<Product>().ToTable("products");
-            modelBuilder.Entity<Product>().Property()
-        }
+        //    modelBuilder.Entity<Product>().ToTable("products");
+        //    modelBuilder.Entity<Product>().Property()
+        //}
     }
 }
