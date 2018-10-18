@@ -28,6 +28,7 @@ namespace Assignment4
         }
 
         // Get Product by name
+        // Doest not work completely as is only returns 1 rather than 3
         public List<Product> GetProductByName(string wantedName)
         {
             var productList = new List<Product>();
