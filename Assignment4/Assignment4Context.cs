@@ -19,8 +19,19 @@ namespace Assignment4
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseNpgsql("host=localhost; db=northwind; uid=postgres; psw=casperkaos ");
+            optionsBuilder.UseLoggerFactory(MyLoggerFactory)
+                .EnableSensitiveDataLogging();
         }
 
+        public static readonly LoggerFactory MyLoggerFactory
+            = new LoggerFactory(new[]
+            {
+                new ConsoleLoggerProvider((category, level)
+                    => category == DbLoggerCategory.Database.Command.Name
+                       && level == LogLevel.Information, true)
+            });
+
+        
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
         //    base.OnModelCreating(modelBuilder);

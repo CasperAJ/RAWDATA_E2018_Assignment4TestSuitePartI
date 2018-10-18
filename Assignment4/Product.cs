@@ -22,6 +22,11 @@ namespace Assignment4
 
         [Column("unitsinstock")]
         public int UnitsInStock { get; set; }
+
+        [Column("categoryid")]
+        public int CategoryId { get; set; }
+
+        public Category Category { get; set; }
     }
 }
 
