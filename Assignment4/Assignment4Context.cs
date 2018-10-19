@@ -31,7 +31,11 @@ namespace Assignment4
                        && level == LogLevel.Information, true)
             });
 
-        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<OrderDetails>().HasKey(x => new {x.ProductId, x.OrderId});
+        }
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
         //    base.OnModelCreating(modelBuilder);

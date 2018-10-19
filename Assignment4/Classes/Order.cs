@@ -14,7 +14,7 @@ namespace Assignment4
         [Column("orderdate")]
         public DateTime Date { get; set; }
 
-        [Column("requiredate")]
+        [Column("requireddate")]
         public DateTime Require { get; set; }
 
         [Column("shippeddate")]
@@ -28,5 +28,8 @@ namespace Assignment4
 
         [Column("shipcity")]
         public string ShipCity { get; set; }
+
+        public List<OrderDetails> OrderDetails { get; set; }
+
     }
 }

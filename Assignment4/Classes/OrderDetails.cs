@@ -9,19 +9,16 @@ namespace Assignment4
     public class OrderDetails
     {
         [Column("orderid")]
-        public int Id { get; set; } // Hvorfor skal den her være der?
-
-        [Column("orderid")]
         public int OrderId { get; set; }
 
-        [Column("product")]
+        [Column("productid")]
         public int ProductId { get; set; }
 
         [Column("unitprice")]
         public int UnitPrice { get; set; }
 
         [Column("quantity")]
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
 
         [Column("discount")]
         public int Discount { get; set; }
