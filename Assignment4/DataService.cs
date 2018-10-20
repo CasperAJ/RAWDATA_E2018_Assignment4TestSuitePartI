@@ -9,7 +9,7 @@ namespace Assignment4
     public class DataService
     {
         // Creates a Global db variable
-        Assignment4Context db = new Assignment4Context();
+        private Assignment4Context db = new Assignment4Context();
 
         // Get Order by id - Task 1
         public Order GetOrder(int orderId)
@@ -64,7 +64,7 @@ namespace Assignment4
             return fetchedOrders;
         }
 
-
+    
         // Get orders - Task 3
         public List<Order> GetOrders()
         {
@@ -111,7 +111,7 @@ namespace Assignment4
             return fetchedOrderDetails;
         }
 
-        // Get Order Details - Task 4
+        // Get Order Details by product id - Task 5 - fails
         public List<OrderDetails> GetOrderDetailsByProductId(int productId)
         {
             var fetchedOrderDetails = new List<OrderDetails>();
