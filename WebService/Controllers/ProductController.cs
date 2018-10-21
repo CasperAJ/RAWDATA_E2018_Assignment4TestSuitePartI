@@ -14,8 +14,9 @@ namespace WebService.Controllers
     {
         DataService dataService = new DataService();
 
+        // Get product by Id - Task 6
         [HttpGet("{productId}")]
-        public IActionResult Get(int productId)
+        public IActionResult GetProduct(int productId)
         {
             var product = dataService.GetProduct(productId);
 
@@ -30,6 +31,29 @@ namespace WebService.Controllers
             productView.CategoryName = product.Category.Name;
 
             return Ok(productView);
+        }
+
+        // Product by category - Task 7
+        [HttpGet("name/{findProduct}")]
+        public IActionResult GetProductByCategory(string findProduct)
+        {
+            var product = dataService.GetProductByName(findProduct);
+            var productList = new List<Product>();
+
+            if (product.Count == 0)
+            {
+                return NotFound(product);
+            }
+
+            foreach (var productFound in product)
+            {
+                var newProduct = new Product();
+                newProduct.Name = productFound.Name;
+                newProduct.Category = productFound.Category;
+
+                productList.Add(newProduct);
+            }
+            return Ok(productList);
         }
     }
 }
